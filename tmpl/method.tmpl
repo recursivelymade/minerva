@@ -1,6 +1,6 @@
 <?js var self = this; ?>
 <dt>
-    <h3 class="name" id="<?js= id ?>"><?js= data.attribs + (kind == 'class'? 'new ':'') + name + data.signature ?></h3>
+    <h3 class="name" id="<?js= id ?>"><?js= (kind == 'class'? 'new ':'') + longname + data.signature ?> <small><?js= data.attribs ?></small></h3>
     
     <?js if (data.summary) { ?>
     <p class="summary"><?js= summary ?></p>
