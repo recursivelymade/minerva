@@ -313,6 +313,7 @@
         view.linkto = linkto;
         view.tutoriallink = tutoriallink;
         view.htmlsafe = htmlsafe;
+        view.extra = opts.query; // Pass all query options to the templates
         // once for all
         view.nav = nav;
 
