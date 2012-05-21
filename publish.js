@@ -319,25 +319,28 @@
 
         for (var longname in helper.longnameToUrl) {
             var classes = find({kind: 'class', longname: longname});
-            if (classes.length) generate('Class: '+classes[0].name, classes, helper.longnameToUrl[longname]);
+            if (classes.length) generate(classes[0].longname +' - '+ opts.query.appname, classes, helper.longnameToUrl[longname]);
         
             var modules = find({kind: 'module', longname: longname});
-            if (modules.length) generate('Module: '+modules[0].name, modules, helper.longnameToUrl[longname]);
+            if (modules.length) generate(modules[0].longname +' - '+ opts.query.appname, modules, helper.longnameToUrl[longname]);
             
             var namespaces = find({kind: 'namespace', longname: longname});
-            if (namespaces.length) generate('Namespace: '+namespaces[0].name, namespaces, helper.longnameToUrl[longname]);        
+            if (namespaces.length) generate(namespaces[0].longname +' - '+ opts.query.appname, namespaces, helper.longnameToUrl[longname]);        
+            
+//             var constants = find({kind: 'constant', longname: longname});
+//             if (constants.length) generate('Constant: '+constants[0].name, constants, helper.longnameToUrl[longname]);        
 
             var mixins = find({kind: 'mixin', longname: longname});
-            if (mixins.length) generate('Mixin: '+mixins[0].name, mixins, helper.longnameToUrl[longname]);        
+            if (mixins.length) generate(mixins[0].longname +' - '+ opts.query.appname, mixins, helper.longnameToUrl[longname]);        
         
             var externals = find({kind: 'external', longname: longname});
-            if (externals.length) generate('External: '+externals[0].name, externals, helper.longnameToUrl[longname]);
+            if (externals.length) generate(externals[0].longname +' - '+ opts.query.appname, externals, helper.longnameToUrl[longname]);
         }
 
         if (globals.length) generate('Global', [{kind: 'globalobj'}], 'global.html');
 
-        generate('Index',
-			[{kind: 'mainpage', longname: (opts.mainpagetitle) ? opts.mainpagetitle : "Main Page"}]
+        generate(opts.query.appname,
+			[{kind: 'mainpage', longname: "Main Page"}]
 		, 'index.html');
         
         
