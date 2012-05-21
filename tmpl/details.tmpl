@@ -53,7 +53,7 @@
 	<?js } ?>
 	
 	<?js if (data.meta) {?>
-	<dt class="tag-source">Source: <a href="https://github.com/<?js= meta.filename ?>#L<?js= meta.lineno ?>"><?js= meta.filename ?>, line <?js= meta.lineno ?></li></ul></dd>
+	<dt class="tag-source">Source: <a href="https://github.com/<?js= self.extra.repo ?>/blob/master/<?js= meta.path.replace("../","") ?>/<?js= meta.filename ?>#L<?js= meta.lineno ?>"><?js= meta.filename ?>, line <?js= meta.lineno ?></li></ul></dd>
 	<?js } ?>
     
     <?js if (data.tutorials && tutorials.length) {?>
