@@ -339,7 +339,7 @@
 
         if (globals.length) generate('Global', [{kind: 'globalobj'}], 'global.html');
 
-        generate(opts.query.appname,
+        generate(opts.query.appname + " - " + opts.query.appdescript,
 			[{kind: 'mainpage', longname: "Main Page"}]
 		, 'index.html');
         

@@ -12,20 +12,19 @@
     <?js } ?>
         
 	<?js if (data.version) {?>
-	<dt class="tag-version">Version:</dt>
-	<dd class="tag-version"><ul class="dummy"><li><?js= version ?></li></ul></dd>
+	<div class="label label-info">Version: <?js= version ?></div>
 	<?js } ?>
 	
 	<?js if (data.since) {?>
-	<dt class="tag-since">Since:</dt>
-	<dd class="tag-since"><ul class="dummy"><li><?js= since ?></dd>
+	<div class="label label-info">Since: <?js= since ?></div>
 	<?js } ?>
 	
 	<?js if (data.deprecated) { ?>
-        <dt class="important tag-deprecated">Deprecated:</dt><?js
-            if (data.deprecated === true) { ?><dd class="yes-def tag-deprecated"><ul class="dummy"><li>Yes</li></ul></dd><?js }
-            else { ?><dd><ul class="dummy"><li><?js= data.deprecated ?></li><ul></dd><?js }
+        <div class="alert alert-error"><strong>Deprecated<strong> <?js
+            if (data.deprecated === true) { ?>Yes<?js }
+            else { ?><?js= data.deprecated ?><?js }
         ?>
+        </div>
     <?js } ?>
 	
 	<?js if (data.author && author.length) {?>
@@ -38,13 +37,11 @@
 	<?js } ?>
 	
 	<?js if (data.copyright) {?>
-	<dt class="tag-copyright">Copyright:</dt>
-	<dd class="tag-copyright"><ul class="dummy"><li><?js= copyright ?></li></ul></dd>
+	<div class="alert alert-success">Copyright: <?js= copyright ?></div>
 	<?js } ?>
 	
 	<?js if (data.license) {?>
-	<dt class="tag-license">License:</dt>
-	<dd class="tag-license"><ul class="dummy"><li><?js= license ?></li></ul></dd>
+	<div class="alert alert-success">License: <?js= license ?></div>
 	<?js } ?>
 	
 	<?js if (data.defaultvalue) {?>
@@ -53,9 +50,9 @@
 	<?js } ?>
 	
 	<?js if (data.meta) {?>
-	<dt class="tag-source">Source: <a href="https://github.com/<?js= self.extra.repo ?>/blob/master/<?js= meta.path.replace("../","") ?>/<?js= meta.filename ?>#L<?js= meta.lineno ?>"><?js= meta.filename ?>, line <?js= meta.lineno ?></li></ul></dd>
+	<p>Source: <a href="https://github.com/<?js= self.extra.repo ?>/blob/master/<?js= meta.path.replace("../../rmsite/nitch.js/","") ?>/<?js= meta.filename ?>#L<?js= meta.lineno ?>"><?js= meta.filename ?>, line <?js= meta.lineno ?></a></p>
 	<?js } ?>
-    
+
     <?js if (data.tutorials && tutorials.length) {?>
     <dt class="tag-tutorial">Tutorials:</dt>
     <dd class="tag-tutorial">
