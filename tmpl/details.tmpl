@@ -79,4 +79,13 @@
         <?js }); ?></ul>
 	</dd>
 	<?js } ?>
+
+<?js if (data.externals && data.externals.length) { ?>
+	<h2 class="subsection-title">External dependancies</h2>
+	<ul>
+	<?js data.externals.forEach(function(r) { ?>
+		<li><a href="<?js= r.url ?>"><?js= r.name ?></a></li>
+	<?js }); ?>
+	</ul>
+<?js } ?>
 </dl>

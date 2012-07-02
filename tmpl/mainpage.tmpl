@@ -1,7 +1,8 @@
 <?js
 var self = this;
 ?>
-<div class="mainpage">
+<div class="hero-unit">
   <h1><?js= this.extra.appname ?></h1>
   <p><?js= this.extra.appdescript ?></p>
 </div>
+<?js= this.partial(this.extra.intro, "") ?>

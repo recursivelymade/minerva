@@ -247,17 +247,15 @@
             });
         }
         
-        var externalNames = find({kind: 'external'});
-        if (externalNames.length) {
-            nav += '<li class="nav-header">Externals</li>';
-            externalNames.forEach(function(e) {
-                if ( !seen.hasOwnProperty(e.longname) ) nav += '<li>'+linkto( e.longname, e.name.replace(/(^"|"$)/g, '') )+'</li>';
-                seen[e.longname] = true;
+        var namespaceNames = find({kind: 'namespace'});
+        if (namespaceNames.length) {
+            nav += '<li class="nav-header">Namespaces</li>';
+            namespaceNames.forEach(function(n) {
+                if ( !seen.hasOwnProperty(n.longname) ) nav += '<li>'+linkto(n.longname, n.longname)+'</li>';
+                seen[n.longname] = true;
             });
-            
-            nav += '</ul>';
         }
-    
+        
         var classNames = find({kind: 'class'});
         if (classNames.length) {
             nav += '<li class="nav-header">Classes</li>';
@@ -272,14 +270,16 @@
                 seen[c.longname] = true;
             });
         }
-        
-        var namespaceNames = find({kind: 'namespace'});
-        if (namespaceNames.length) {
-            nav += '<li class="nav-header">Namespaces</li>';
-            namespaceNames.forEach(function(n) {
-                if ( !seen.hasOwnProperty(n.longname) ) nav += '<li>'+linkto(n.longname, n.longname)+'</li>';
-                seen[n.longname] = true;
+                        
+        var externalNames = find({kind: 'external'});
+        if (externalNames.length) {
+            nav += '<li class="nav-header">Externals</li>';
+            externalNames.forEach(function(e) {
+                if ( !seen.hasOwnProperty(e.longname) ) nav += '<li>'+linkto( e.longname, e.longname )+'</li>';
+                seen[e.longname] = true;
             });
+            
+            nav += '</ul>';
         }
         
         var mixinNames = find({kind: 'mixin'});
